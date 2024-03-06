@@ -38,12 +38,12 @@ namespace API_00014719.Repository
 
         public Feedback GetFeedbackById(int id)
         {
-            return context.Feedbacks.Find(id);
+            return context.Feedbacks.Include(f => f.Teacher).First(f => f.Id == id);
         }
 
         public List<Feedback> GetFeedbacks()
         {
-            return context.Feedbacks.ToList();
+            return context.Feedbacks.Include(f => f.Teacher).ToList();
         }
 
         public void UpdateFeedback(int id, Feedback feedback)
