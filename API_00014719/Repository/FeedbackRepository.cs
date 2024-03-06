@@ -1,5 +1,6 @@
 ﻿using API_00014719.Data;
 using API_00014719.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_00014719.Repository
 {
@@ -13,27 +14,60 @@ namespace API_00014719.Repository
 
         public Feedback CreateFeedback(Feedback feedback)
         {
-            throw new NotImplementedException();
+            Teacher? teacher = context.Teachers.Find(feedback.Teacher.Id);
+            if(teacher == null)
+            {
+                context.Teachers.Add(feedback.Teacher);
+            }
+            else
+            {
+                feedback.Teacher = teacher;
+            }
+
+            context.Feedbacks.Add(feedback);
+            context.SaveChanges();
+            return feedback;
         }
 
         public void DeleteFeedback(int id)
         {
-            throw new NotImplementedException();
+            Feedback feedback = context.Feedbacks.Find(id);
+            context.Feedbacks.Remove(feedback);
+            context.SaveChanges();
         }
 
         public Feedback GetFeedbackById(int id)
         {
-            throw new NotImplementedException();
+            return context.Feedbacks.Find(id);
         }
 
         public List<Feedback> GetFeedbacks()
         {
-            throw new NotImplementedException();
+            return context.Feedbacks.ToList();
         }
 
         public void UpdateFeedback(int id, Feedback feedback)
         {
-            throw new NotImplementedException();
+            Feedback? oldFeedback = GetFeedbackById(id);
+            if (oldFeedback == null) { return; }
+
+            Teacher? teacher = context.Teachers.Find(feedback.Teacher.Id);
+            if (teacher == null)
+            {
+                context.Teachers.Add(feedback.Teacher);
+            }
+            else
+            {
+                feedback.Teacher = teacher;
+            }
+
+            context.Entry(oldFeedback).State = EntityState.Modified;
+
+            oldFeedback.Title = feedback.Title;
+            oldFeedback.Description = feedback.Description;
+            oldFeedback.Teacher = feedback.Teacher;
+
+            context.SaveChanges();
         }
     }
 }
