@@ -1,1 +1,6 @@
 <p>delete-teachers works!</p>
+
+<h1>You are deleting a teacher "{{ teacher.firstName }} {{ teacher.lastName }}". Are you sure?</h1>
+
+<button (click)="deleteTeacher()">Yes</button>
+<button (click)="cancelDelete()">No</button>

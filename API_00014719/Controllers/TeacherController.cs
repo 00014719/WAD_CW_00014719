@@ -69,7 +69,7 @@ namespace API_00014719.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteTeacher(int id)
         {
             try

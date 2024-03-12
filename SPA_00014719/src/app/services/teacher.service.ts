@@ -8,7 +8,7 @@ import { Teacher } from './models/teacher.model';
 })
 export class TeacherService {
 
-  private apiUrl = 'https://localhost:7070/api/Teacher'
+  private apiUrl = 'https://localhost:7070/api/Teacher/'
   constructor(private http: HttpClient) { }
 
   getTeachers(): Observable<Teacher[]>{
