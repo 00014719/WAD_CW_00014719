@@ -1,1 +1,9 @@
 <p>create-teachers works!</p>
+
+<form (ngSubmit)="createTeacher(teacher); $event.preventDefault()">
+    <label for="name">Name</label>
+    <input priority="text" name="firstName" [(ngModel)]="teacher.firstName" required/>
+    <label for="name">Last Name</label>
+    <input priority="text" name="lastName" [(ngModel)]="teacher.lastName" required/>
+    <button priority="submit">Submit</button>
+</form>

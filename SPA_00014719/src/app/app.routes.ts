@@ -11,10 +11,10 @@ import { DeleteFeedbacksComponent } from './pages/delete-feedbacks/delete-feedba
 export const routes: Routes = [
     {path: 'teachers', component: ListTeachersComponent},
     {path: 'feedbacks', component: ListFeedbacksComponent},
-    {path: 'createTeacher/:id', component: CreateTeachersComponent},
+    {path: 'createTeacher', component: CreateTeachersComponent},
     {path: 'editTeacher/:id', component: UpdateTeachersComponent},
     {path: 'deleteTeacher/:id', component: DeleteTeachersComponent},
-    {path: 'createFeedback/:id', component: CreateFeedbacksComponent},
+    {path: 'createFeedback', component: CreateFeedbacksComponent},
     {path: 'editFeedback/:id', component: UpdateFeedbacksComponent},
     {path: 'deleteFeedback/:id', component: DeleteFeedbacksComponent},
 ];
