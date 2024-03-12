@@ -1,1 +1,28 @@
-<p>list-teachers works!</p>
+<h2>Teachers</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>!</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (teacher of teachers; track $index) {
+            <tr>
+                <td>{{teacher.id}}</td>
+                <td>{{teacher.firstName}}</td>
+                <td>{{teacher.lastName}}</td>
+                <td>
+                    <a [routerLink]="['/editTeacher', teacher.id]">Edit Teacher</a> 
+                    OR
+                    <a [routerLink]="['/deleteTeaecher', teacher.id]">Delete Teacher</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button routerLink="/createTeacher">Create Teacher</button>
