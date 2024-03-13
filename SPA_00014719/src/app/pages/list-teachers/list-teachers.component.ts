@@ -16,11 +16,11 @@ export class ListTeachersComponent{
   constructor(private teacherService: TeacherService,  private router: Router){}
 
   ngOnInit(): void{
-this.getTeachers();
+    this.getTeachers();
   }
 
   getTeachers(): void{
     this.teacherService.getTeachers()
-    .subscribe(teachers => this.teachers = teachers);
+      .subscribe(teachers => this.teachers = teachers);
   }
 }

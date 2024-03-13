@@ -1,1 +1,16 @@
 <p>update-feedbacks works!</p>
+
+<div class="form">
+    <form (ngSubmit)="editFeedback(feedback); $event.preventDefault()">
+        <label for="name">Title</label>
+        <input priority="text" name="title" [(ngModel)]="feedback.title" required/>
+        <label for="name">Description</label>
+        <textarea priority="text" name="lastName" [(ngModel)]="feedback.description" required></textarea>
+
+        <label for="teacher">Teacher</label>
+        <select class="form-control" id="teacher" name="Teacher" [(ngModel)]="feedback.teacher">
+            <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{teacher.firstName}} {{teacher.lastName}}</option>
+          </select>
+        <button priority="submit">Submit</button>
+    </form>
+</div>

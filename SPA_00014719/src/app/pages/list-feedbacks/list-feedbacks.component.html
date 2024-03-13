@@ -1,1 +1,30 @@
-<p>list-feedbacks works!</p>
+<h2>Feedbacks</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Teacher</th>
+            <th>!</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (feedback of feedbacks; track $index) {
+            <tr>
+                <td>{{feedback.id}}</td>
+                <td>{{feedback.title}}</td>
+                <td>{{feedback.description}}</td>
+                <td>{{feedback.teacher.firstName}} {{feedback.teacher.lastName}}</td>
+                <td>
+                    <a [routerLink]="['/editFeedback', feedback.id]">Edit Feedback</a> 
+                    OR
+                    <a [routerLink]="['/deleteFeedback', feedback.id]">Delete Feedback</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button routerLink="/createFeedback">Create Feedback</button>
